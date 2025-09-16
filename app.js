@@ -1,49 +1,23 @@
 'use strict'
 
+const body = document.querySelector('body');
+const input = document.getElementById('input');
+const botaoImagem = document.getElementById('troca-imagem');
 
-const imagens = [
-    {
-        nome: 'Duquesa',
-        url: './img/Duquesa.png'
-    },
-    {
-        nome: 'T&T',
-        url: './img/Tasha-e-Tracie.jpg'
-    },
-    {
-        nome: 'Ebony',
-        url: './img/Ebony.jpg'
-    }
-]
-
-function buscandoImagem (ImagemNome) {
-    const imagemResultado = getElementById('resultado');
-    const input = document.getElementById('textoInserido');
-    const botaoImagem = document.getElementById('troca-imagem');
-    const Imagem = document.createElement('img');
-
-    const texto = input.value
+function trocarImagem () {
+    let nomeImg = document.getElementById('input').value.trim()
     
+    nomeImg = nomeImg.toLowerCase()
 
-    texto = Imagem
-    Imagem.scr = ImagemNome.url
-    
+    const caminhoImg = `url(./img/${nomeImg}.jpg)`
 
-    imagemResultado.appendChild(Imagem)
-    
-    
-    botaoImagem.addEventListener('click', resultado);
-
-    
+    document.documentElement.style.setProperty('--bg-img', caminhoImg)
+  
 
 }
 
-function carregarResultado () {
+function autoImagem () {
 
-    const resultado = document.getElementById('resultado')
-
-    imagens.forEach(buscandoImagem)
 }
 
-carregarResultado()
-
+botaoImagem.addEventListener('click' , trocarImagem)
